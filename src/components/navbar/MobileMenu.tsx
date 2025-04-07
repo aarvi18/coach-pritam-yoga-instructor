@@ -24,7 +24,7 @@ export const MobileMenu: React.FC<Props> = ({ isOpen, onClose }) => {
       animate={{ x: 0 }}
       exit={{ x: '100%' }}
       transition={{ duration: 0.3 }}
-      className="fixed top-17 right-0 h-auto w-64 bg-white shadow-lg z-50 p-6 flex flex-col gap-6 md:hidden"
+      className="fixed top-12 right-0 h-auto w-64 bg-white shadow-lg z-50 p-6 flex flex-col gap-6 md:hidden"
     >
       <ul className="flex flex-col gap-4 text-lg font-medium text-gray-700">
         {menuItems.map((item) => (

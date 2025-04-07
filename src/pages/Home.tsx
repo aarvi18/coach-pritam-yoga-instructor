@@ -1,8 +1,13 @@
 // pages/Home.tsx
 import React from 'react'
+import HeroSection from '../components/minorComponents/HeroSection'
 
 const Home: React.FC = () => {
-  return <div>Welcome to Pritam Yoga 🙏</div>
+  return (
+    <>
+      <HeroSection />
+    </>
+  )
 }
 
 export default Home
