@@ -2,7 +2,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './layout/Layout'
-import { HomePage } from './pages'
+import { HomePage, NotFoundPage } from './pages'
 
 const App: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           {/* Add 404 */}
-          <Route path="*" element={<div>404 - Not Found</div>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
