@@ -1,13 +1,20 @@
+// src/App.tsx
 import React from 'react'
-import { Navbar } from './components/navbar'
-import { Footer } from './components/footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './layout/Layout'
+import { HomePage } from './pages'
 
 const App: React.FC = () => {
   return (
-    <>
-      <Navbar />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          {/* Add 404 */}
+          <Route path="*" element={<div>404 - Not Found</div>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
