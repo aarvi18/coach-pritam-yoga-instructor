@@ -6,6 +6,7 @@ import {
   X as Twitter,
   MessageCircleMore,
 } from 'lucide-react'
+import { main } from '../../data/main'
 
 export const FooterLinks: React.FC = () => {
   return (
@@ -29,9 +30,9 @@ export const FooterLinks: React.FC = () => {
       <div>
         <h4 className="text-lg font-semibold mb-4">Contact</h4>
         <ul className="space-y-2">
-          <li>Email: info@pritamyoga.com</li>
-          <li>Phone: +91 98765 43210</li>
-          <li>Location: Bangalore, India</li>
+          <li>{main.companyEmail}</li>
+          <li>{main.companyPhoneNumber}</li>
+          <li>{main.companyAddress}</li>
         </ul>
       </div>
       <div>
