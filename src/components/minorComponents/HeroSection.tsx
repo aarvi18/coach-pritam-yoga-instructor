@@ -1,61 +1,67 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { motion } from 'framer-motion'
+import HeroImage from './HeroImage'
 
 const HeroSection: React.FC = () => {
-    return (
-        <div
-            className="relative w-full h-screen bg-cover bg-center"
-            style={{
-                backgroundImage: "url('https://images6.alphacoders.com/126/1263719.jpg')", // Ensure this image is in your public folder
-            }}
+  return (
+    <div className="relative w-full min-h-screen bg-black overflow-hidden flex items-center justify-center py-10 px-6 md:px-16">
+
+      {/* Glowing Blur Circles */}
+      <div className="absolute w-[500px] h-[500px] bg-purple-500 opacity-20 blur-[180px] rounded-full top-[-100px] left-[-100px]"></div>
+      <div className="absolute w-[400px] h-[400px] bg-pink-500 opacity-20 blur-[150px] rounded-full top-[200px] right-[-150px]"></div>
+      <div className="absolute w-[300px] h-[300px] bg-yellow-500 opacity-10 blur-[120px] rounded-full bottom-[-100px] left-[20%]"></div>
+
+      {/* Main Content Layout */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full max-w-7xl">
+
+        {/* Left Side Text Content */}
+        <motion.div
+          className="text-white max-w-xl mx-auto lg:mx-0 text-center lg:text-left"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
         >
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-white/10"></div>
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 bg-gradient-to-r from-red-500 to-orange-500 text-transparent bg-clip-text"
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            Transform Your Body & Mind
+          </motion.h1>
 
-            {/* Content */}
-            <div className="relative z-10 flex items-center justify-start h-full px-6 md:px-16">
-                <motion.div
-                    className="text-white max-w-xl"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1 }}
-                >
-                    <motion.h1
-                        className="text-4xl md:text-6xl font-extrabold mb-4"
-                        initial={{ y: -30, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.2, duration: 0.8 }}
-                    >
-                        Transform Your Body & Mind
-                    </motion.h1>
+          <motion.p
+            className="text-sm md:text-base text-gray-300 mb-8"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            Join me on a holistic journey to better health.
+            With over 10 years of experience and more than 1,000 lives transformed, I offer personalized yoga and wellness coaching that blends yoga, nutrition, and mindset. My approach empowers you to grow physically, mentally, and spiritually — all through one balanced, transformative path.
+          </motion.p>
 
-                    <motion.p
-                        className="text-sm md:text-sm text-gray-300 mb-8"
-                        initial={{ y: -20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.4, duration: 0.8 }}
-                    >
-                        Join me on a holistic journey to better health.
-                        With over 10 years of experience and more than 1,000 lives transformed, I offer personalized yoga and wellness coaching that blends yoga, nutrition, and mindset. My approach empowers you to grow physically, mentally, and spiritually — all through one balanced, transformative path.
-                    </motion.p>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 1 }}
+          >
+            <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-xl transition duration-300">
+              Explore
+            </button>
+            <button className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold py-3 px-6 rounded-xl transition duration-300">
+              Book Now
+            </button>
+          </motion.div>
+        </motion.div>
 
-                    <motion.div
-                        className="flex flex-col sm:flex-row gap-4"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.6, duration: 1 }}
-                    >
-                        <button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-300">
-                            Explore
-                        </button>
-                        <button className="border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white font-semibold py-3 px-6 rounded-xl transition duration-300">
-                            Book Now
-                        </button>
-                    </motion.div>
-                </motion.div>
-            </div>
+        {/* Right Side Animated Image */}
+        <div className="max-w-full w-full mx-auto">
+          <HeroImage />
         </div>
-    );
-};
+      </div>
+    </div>
+  )
+}
 
-export default HeroSection;
+export default HeroSection
