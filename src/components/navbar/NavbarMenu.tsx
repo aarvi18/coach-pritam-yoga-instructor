@@ -11,7 +11,7 @@ const navItems = [
 
 export const NavbarMenu: React.FC = () => {
   return (
-    <ul className="flex gap-8 text-[16px] font-semibold text-gray-700">
+    <ul className="flex gap-8 text-[16px] font-semibold text-white">
       {navItems.map((item) => (
         <li key={item.name} className="relative">
           <NavLink

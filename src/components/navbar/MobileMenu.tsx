@@ -20,21 +20,21 @@ export const MobileMenu: React.FC<Props> = ({ isOpen, onClose }) => {
 
   return (
     <motion.div
-      initial={{ x: '100%' }}
-      animate={{ x: 0 }}
-      exit={{ x: '100%' }}
-      transition={{ duration: 0.3 }}
-      className="fixed top-12 right-0 h-auto w-64 bg-white shadow-lg z-50 p-6 flex flex-col gap-6 md:hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4, ease: 'easeInOut' }}
+      className="fixed top-13 left-0 w-full z-40 p-6 md:hidden bg-white border-b border-white/20 shadow-lg rounded-xl"
     >
-      <ul className="flex flex-col gap-4 text-lg font-medium text-gray-700">
+
+      <ul className="flex flex-col gap-4 text-lg font-medium text-black">
         {menuItems.map((item) => (
           <li key={item.name}>
             <NavLink
               to={item.path}
               onClick={onClose}
               className={({ isActive }) =>
-                `flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 ${
-                  isActive ? 'text-primary font-semibold' : 'hover:text-primary'
+                `flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 ${isActive ? 'text-orange-500 font-semibold' : 'hover:text-orange/90'
                 }`
               }
             >
@@ -45,10 +45,7 @@ export const MobileMenu: React.FC<Props> = ({ isOpen, onClose }) => {
         ))}
       </ul>
 
-      <button
-        className="mt-auto bg-primary text-white px-4 py-2 rounded-xl shadow-md hover:bg-primary-dark transition"
-        onClick={onClose}
-      >
+      <button className="mt-6 bg-gradient-to-r from-red-500 to-orange-500 text-white px-5 py-2 rounded-md shadow-lg hover:brightness-110 transition duration-300">
         Book Now
       </button>
     </motion.div>
