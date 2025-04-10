@@ -2,6 +2,9 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import HeroImage from './HeroImage'
 import CompanyTagline from './CompanyTagline'
+import MainButton from './MainButton'
+import { ArrowRight, PhoneCall } from 'lucide-react'
+import SecondaryButton from './SecondaryButton'
 
 const HeroSection: React.FC = () => {
   return (
@@ -24,7 +27,7 @@ const HeroSection: React.FC = () => {
         >
           <CompanyTagline />
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 bg-gradient-to-r from-red-500 to-orange-500 text-transparent bg-clip-text"
+            className="text-4xl md:text-5xl lg:text-6xl sm:leading-20 font-bold mb-4 bg-gradient-to-r from-red-500 to-orange-500 text-transparent bg-clip-text mt-10 md:mt-0"
             initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -38,8 +41,7 @@ const HeroSection: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Join me on a holistic journey to better health.
-            With over 10 years of experience and more than 1,000 lives transformed, I offer personalized yoga and wellness coaching that blends yoga, nutrition, and mindset. My approach empowers you to grow physically, mentally, and spiritually — all through one balanced, transformative path.
+            Join me on a holistic journey to better health. With 10+ years of experience and 1,000+ lives transformed, I offer personalized coaching that blends yoga, nutrition, and mindset to help you grow physically, mentally, and spiritually.
           </motion.p>
 
           <motion.div
@@ -48,12 +50,8 @@ const HeroSection: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
           >
-            <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-xl transition duration-300">
-              Explore
-            </button>
-            <button className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold py-3 px-6 rounded-xl transition duration-300">
-              Book Now
-            </button>
+            <MainButton text='Book a 15 min call' icon={<PhoneCall size={18} />} onClick={() => console.log("Clicked")} />
+            <SecondaryButton text='Explore' icon={<ArrowRight size={18} />} />
           </motion.div>
         </motion.div>
 
