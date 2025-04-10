@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import HeroImage from './HeroImage'
+import CompanyTagline from './CompanyTagline'
 
 const HeroSection: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
+          <CompanyTagline />
           <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 bg-gradient-to-r from-red-500 to-orange-500 text-transparent bg-clip-text"
             initial={{ y: -30, opacity: 0 }}
