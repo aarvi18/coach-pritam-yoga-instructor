@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const backgroundImage = 'https://reflexi.vercel.app/static/media/hero.595a7a35e71f541d0158.png'
-
-const overlayImages = [
-    'https://reflexi.vercel.app/static/media/halasana.7e7c706873fb7a2c42ce.png',
-    'https://reflexi.vercel.app/static/media/bhujangasana.d8490222779eb44d5a8c.png',
-    'https://reflexi.vercel.app/static/media/ardha_padmasana.c58d1e3f9fc5b2f0fa01.png',
-    'https://reflexi.vercel.app/static/media/halasana.7e7c706873fb7a2c42ce.png',
-    'https://reflexi.vercel.app/static/media/halasana.7e7c706873fb7a2c42ce.png',
+const slides = [
+    {
+        image: 'https://imgcdn.stablediffusionweb.com/2024/5/3/d9ccc511-fd72-4fb2-acd8-da6c8bdada33.jpg',
+        name: 'Ardha Padmasana',
+    },
+    {
+        image: 'https://imgcdn.stablediffusionweb.com/2024/5/3/c81f4a72-84ff-499e-8c40-57327ceac580.jpg',
+        name: 'Halasana',
+    },
+    {
+        image: 'https://imgcdn.stablediffusionweb.com/2024/5/3/1e8058a4-fcd4-4cac-8870-48c8ab63a1e5.jpg',
+        name: 'Vrikshasana',
+    },
 ]
 
 const HeroImage: React.FC = () => {
@@ -16,44 +21,40 @@ const HeroImage: React.FC = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrent((prev) => (prev + 1) % overlayImages.length)
-        }, 4000)
+            setCurrent((prev) => (prev + 1) % slides.length)
+        }, 5000)
         return () => clearInterval(interval)
     }, [])
 
     return (
-        <div className="relative w-80 h-80 overflow-hidden">
-            {/* Background Image */}
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-40"
-                style={{ backgroundImage: `url(${backgroundImage})` }}
-            ></div>
+        <div className="relative w-full max-w-md mx-auto aspect-square overflow-hidden rounded-3xl">
+            {/* Fade-in/out Image */}
+            <AnimatePresence mode="wait">
+                <motion.img
+                    key={slides[current].image}
+                    src={slides[current].image}
+                    alt="Yoga Pose"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                />
+            </AnimatePresence>
 
-            {/* Overlay Changing Image */}
-            <div className="absolute inset-0 flex items-center justify-center">
-                <AnimatePresence mode="wait">
-                    <motion.img
-                        key={overlayImages[current]}
-                        src={overlayImages[current]}
-                        alt="Hero Overlay"
-                        className="max-w-[80%] max-h-[80%] object-contain rounded-xl shadow-2xl"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.05 }}
-                        transition={{ duration: 1 }}
-                    />
-                </AnimatePresence>
-            </div>
-
-            {/* Optional: Caption or Control */}
-            <div className="absolute bottom-10 w-full flex justify-center gap-2 z-10">
-                {overlayImages.map((_, i) => (
-                    <div
-                        key={i}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${i === current ? 'bg-white' : 'bg-white/30'}`}
-                    ></div>
-                ))}
-            </div>
+            {/* Fade-in/out Text Label */}
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={slides[current].name}
+                    className="absolute bottom-0 right-0 backdrop-blur-md bg-white/20 border border-white/30 text-black text-sm sm:text-base font-medium px-4 py-2 rounded-lg shadow-lg"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                >
+                    {slides[current].name}
+                </motion.div>
+            </AnimatePresence>
         </div>
     )
 }
