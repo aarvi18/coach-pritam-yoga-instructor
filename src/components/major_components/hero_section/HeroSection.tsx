@@ -2,9 +2,9 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import HeroImage from './HeroImage'
 import CompanyTagline from './CompanyTagline'
-import MainButton from './MainButton'
 import { ArrowRight, PhoneCall } from 'lucide-react'
-import SecondaryButton from './SecondaryButton'
+import MainButton from '../../minor_components/MainButton'
+import SecondaryButton from '../../minor_components/SecondaryButton'
 
 const HeroSection: React.FC = () => {
   return (
