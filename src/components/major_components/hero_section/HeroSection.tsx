@@ -3,8 +3,7 @@ import { motion } from 'framer-motion'
 import HeroImage from './HeroImage'
 import CompanyTagline from './CompanyTagline'
 import { ArrowRight, PhoneCall } from 'lucide-react'
-import MainButton from '../../minor_components/MainButton'
-import SecondaryButton from '../../minor_components/SecondaryButton'
+import { Primary_Button, Secondary_Button } from '../../../components'
 
 const HeroSection: React.FC = () => {
   return (
@@ -50,8 +49,8 @@ const HeroSection: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
           >
-            <MainButton text='Book a 15 min call' icon={<PhoneCall size={18} />} onClick={() => console.log("Clicked")} />
-            <SecondaryButton text='Explore' icon={<ArrowRight size={18} />} />
+            <Primary_Button text='Book a 15 min call' icon={<PhoneCall size={18} />} onClick={() => console.log("Clicked")} />
+            <Secondary_Button text='Explore' icon={<ArrowRight size={18} />} />
           </motion.div>
         </motion.div>
 
